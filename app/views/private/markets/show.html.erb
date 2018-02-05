@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link href="/favicon.ico" rel="shortcut icon" />
+    <%= include_gon %>
+    <%= stylesheet_link_tag 'market', media: "all" %>
+    <%= javascript_include_tag 'market' %>
+    <%= javascript_include_tag "locales/#{locale_name}" %>
+    <%= render 'shared/html5' %>
+    <%= render 'shared/meta' %>
+    <%#= csrf_meta_tags %>
+  </head>
+
+  <body id="<%= body_id %>" data-lang="<%= locale_name %>">
+    <audio preload="preload" id="success-fx">
+      <source src="/sounds/success.mp3" />
+    </audio>
+
+    <audio preload="preload" id="warning-fx">
+      <source src="/sounds/warning.mp3" />
+    </audio>
+
+    <%= render partial: 'header', locals: {market: @response["current_market"], current_user: @response["member"], accounts: @response["member_accounts"] } %>
+    <div id="wrap">
+      <div class="content">
+        <%= render partial: 'market_trades' %>
+        <%= render partial: 'market_list', locals: {markets: @response["markets"], market_groups: @response["market_groups"]}%>
+
+        <%= render partial: 'candlestick' %>
+        <%= render partial: 'range_switch' %>
+        <%= render partial: 'indicator_switch' %>
+
+        <% if chat_feature %>
+          <div id="chat_tabs_wrapper" class="float">
+            <ul class="nav nav-tabs tabs-right sideways">
+              <li>
+                <a href="#chat_content" data-toggle="tab">
+                  <%= t('.chat') %>
+                </a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div id="chat_content" class="tab-pane">
+                <%= render partial: 'chat' %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+        <%= render partial: 'order_book' %>
+        <%= render partial: 'depths' %>
+        <%= render partial: 'ticker' %>
+        <%= render partial: 'ask_entry', locals: {market: @response["current_market"]} %>
+        <%= render partial: 'bid_entry', locals: {market: @response["current_market"]} %>
+        <%= render partial: 'my_orders', locals: {market: @response["current_market"]} %>
+      </div>
+    </div>
+  </body>
+</html>

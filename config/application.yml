@@ -1,0 +1,9 @@
+development:
+  HOST: "http://localhost:3000"
+  REDIS_URL:      redis://127.0.0.1:6379
+  REDIS_PASSWORD: ~ # By default no password is sent to Redis server. Change this if you want to connect using password.
+
+production:
+  HOST:
+  REDIS_URL:
+  REDIS_PASSWORD: ~ # By default no password is sent to Redis server. Change this if you want to connect using password.
