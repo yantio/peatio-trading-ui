@@ -75,6 +75,7 @@ $ ->
       $.ajax
         url: $(this).attr('href')
         type: 'post'
+        data: {authenticity_token: AUTH_TOKEN}
         xhrFields: 'withCredentials': true
         success: ((_this) ->
           ->

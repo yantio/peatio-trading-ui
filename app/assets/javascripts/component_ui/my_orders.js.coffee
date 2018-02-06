@@ -19,7 +19,8 @@
     if confirm(formatter.t('place_order')['confirm_cancel'])
       $.ajax
         url:     gon.host + formatter.market_url gon.market.id, tr.data('id')
-        type:  'delete'
+        type:  'post'
+        data: {authenticity_token: AUTH_TOKEN, _method: "delete"}
         xhrFields: {'withCredentials': true }
         success: =>
           location.reload()
