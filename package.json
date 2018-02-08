@@ -1,5 +1,8 @@
 {
   "name": "peatio-trading",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "currency-flags": "https://github.com/transferwise/currency-flags.git",
+    "raven-js": "^3.22.1"
+  }
 }
