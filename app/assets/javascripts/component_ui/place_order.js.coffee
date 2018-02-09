@@ -79,7 +79,7 @@
 
   @submitForm = (event)->
     event.preventDefault()
-    @disableSubmit()
+#    @disableSubmit()
     form = $(event.target)
     values = form.serialize()
     $.ajax
