@@ -8,6 +8,7 @@
     <%= javascript_include_tag "locales/#{locale_name}" %>
     <%= render 'shared/html5' %>
     <%= render 'shared/meta' %>
+    <%= render 'shared/sentry' %>
     <%= csrf_meta_tags %>
     <%= javascript_tag "var AUTH_TOKEN = '#{form_authenticity_token}';" %>
   </head>

@@ -6,6 +6,13 @@ defaults: &defaults
   # Customize title of markers page using the variable below:
   TITLE_MARKETS: PEATIO
 
+  METADATA_TITLE:       Peatio Exchange
+  METADATA_DESCRIPTION: The Opensource Cryptocurrency Exchange
+  METADATA_KEYWORDS:    Peatio,Opensource,Exchange,Cryptocurrency
+
+  # Configuration variables for Sentry.
+  SENTRY_DSN_FRONTEND: ~         # Specify Sentry DSN used for JavaScript application.
+
 development:
   <<: *defaults
 
